@@ -1734,8 +1734,7 @@ header {
 .portfolio__contents-left img {
   width: 720px;
   width: 72rem;
-  height: 405px;
-  height: 40.5rem;
+  height: auto;
 }
 
 .portfolio__contents-right-container {
