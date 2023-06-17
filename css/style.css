@@ -1898,10 +1898,10 @@ header {
 }
 
 .portfolio__contents-swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet {
-  width: 32px;
-  width: 3.2rem;
-  height: 4px;
-  height: .4rem;
+  width: 24px;
+  width: 2.4rem;
+  height: 2.5px;
+  height: .25rem;
   background-color: #a0a0a0;
   border-radius: 0; 
 }
