@@ -1,7 +1,7 @@
 // mobile fullpage scroll
-const $scrollMobileWrap = document.querySelector(`#scroll-mobile-wrap`);
-const $scrollMobile = document.querySelectorAll(`.scroll-mobile`);
-const $scrollMobileLi = document.querySelectorAll(`.scroll-mobile-li`);
+const $scrollMobileWrap = document.querySelector("#scroll-mobile-wrap");
+const $scrollMobile = document.querySelectorAll(".scroll-mobile");
+const $scrollMobileLi = document.querySelectorAll(".scroll-mobile-li");
 
 const M_IDLE_PERIOD = 0;
 const M_DURATION = 1000;
@@ -16,7 +16,7 @@ let mTimer;
 let isScrollCompleted = true;
 
 $scrollMobileLi.forEach((item, i) => {
-  item.addEventListener(`click`, (e) => {
+  item.addEventListener("click", (e) => {
     e.preventDefault();
     const currentTime = new Date().getTime();
 
@@ -27,7 +27,7 @@ $scrollMobileLi.forEach((item, i) => {
     mHandleClick(i);
     mLastAnimation = currentTime;
     return () => {
-      item.removeEventListener(`click`);
+      item.removeEventListener("click");
     };
   });
 });
@@ -35,9 +35,8 @@ $scrollMobileLi.forEach((item, i) => {
 const mActiveClassControl = (i) => {
   mIndex = i;
   if (isScrollCompleted) {
-    $scrollMobileLi[mPreIndex].classList.remove(`active`);
-    $scrollMobileLi[i].classList.add(`active`);  
-    console.log(i, mPreIndex);
+    $scrollMobileLi[mPreIndex].classList.remove("active");
+    $scrollMobileLi[i].classList.add("active");
     mPreIndex = i;
   }
 }
@@ -50,7 +49,7 @@ const mHandleClick = (i) => {
   } else {
     mActiveClassControl(i);
     isScrollCompleted = false;
-    $scrollMobile[i].scrollIntoView({ behavior: `smooth` });
+    $scrollMobile[i].scrollIntoView({ behavior: "smooth" });
     setTimeout(function() { isScrollCompleted = true; }, M_IS_SCROLL_COMPLETED_DELAY);
   }
 };
@@ -62,7 +61,7 @@ const mHandleNext = (i) => {
     $scrollMobile.forEach((item, mIndex) => {
       if (i === mIndex) {
         mActiveClassControl(i);
-        item.scrollIntoView({ behavior: `smooth` });
+        item.scrollIntoView({ behavior: "smooth" });
       }
     });
   }
@@ -75,7 +74,7 @@ const mHandlePrev = (i) => {
     $scrollMobile.forEach((item, mIndex) => {
       if (i === mIndex) {
         mActiveClassControl(i);
-        item.scrollIntoView({ behavior: `smooth` });
+        item.scrollIntoView({ behavior: "smooth" });
       }
     });
   }
@@ -92,7 +91,6 @@ function mHandleScrollEvent(e) {
   mTimer = null;
   $scrollMobile.forEach((element, index) => {
     if (isScrolledIntoView(element)) {
-      console.log(isScrolledIntoView(element), index);
       const st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
       
       if (st > mLastScrollTop) {
@@ -108,17 +106,17 @@ function mHandleScrollEvent(e) {
   })
 }
 
-window.addEventListener(`scroll`, function(e) {
+window.addEventListener("scroll", function(e) {
   if (!mTimer) mTimer = setTimeout(mHandleScrollEvent, M_DELAY);
   return () => {
-    window.removeEventListener(`scroll`);
+    window.removeEventListener("scroll");
   }
 }, true);
 
 // desktop fullpage scroll
-const $scrollDesktopWrap = document.querySelector(`#scroll-desktop-wrap`);
-const $scrollDesktop = document.querySelectorAll(`.scroll-desktop`);
-const $scrollDesktopLi = document.querySelectorAll(`.scroll-desktop-li`);
+const $scrollDesktopWrap = document.querySelector("#scroll-desktop-wrap");
+const $scrollDesktop = document.querySelectorAll(".scroll-desktop");
+const $scrollDesktopLi = document.querySelectorAll(".scroll-desktop-li");
 
 const idlePeriod = 0;
 const duration = 1000;
@@ -128,7 +126,7 @@ let index = 0;
 let preIndex = 0;
 
 $scrollDesktopLi.forEach((item, i) => {
-  item.addEventListener(`click`, (e) => {
+  item.addEventListener("click", (e) => {
     e.preventDefault();
     const currentTime = new Date().getTime();
 
@@ -140,15 +138,14 @@ $scrollDesktopLi.forEach((item, i) => {
     preIndex = i;
     lastAnimation = currentTime;
     return () => {
-      item.removeEventListener(`click`);
+      item.removeEventListener("click");
     };
   });
 });
 
 const activeClassControl = (index) => {
-  $scrollDesktopLi[index].classList.add(`active`);
-  $scrollDesktopLi[preIndex].classList.remove(`active`);
-  console.log(index, preIndex);
+  $scrollDesktopLi[index].classList.add("active");
+  $scrollDesktopLi[preIndex].classList.remove("active");
   preIndex = index;
 }
 
@@ -159,7 +156,7 @@ const handleClick = (i) => {
     return;
   } else {
     activeClassControl(i);
-    $scrollDesktop[i].scrollIntoView({ behavior: `smooth` });    
+    $scrollDesktop[i].scrollIntoView({ behavior: "smooth" });    
   }
 };
 
@@ -170,7 +167,7 @@ const handleNext = (i) => {
     $scrollDesktop.forEach((item, index) => {
       if (i === index) {
         activeClassControl(i);
-        item.scrollIntoView({ behavior: `smooth` });        
+        item.scrollIntoView({ behavior: "smooth" });        
       }
     });
   }
@@ -183,7 +180,7 @@ const handlePrev = (i) => {
     $scrollDesktop.forEach((item, index) => {
       if (i === index) {
         activeClassControl(i);
-        item.scrollIntoView({ behavior: `smooth` });        
+        item.scrollIntoView({ behavior: "smooth" });        
       }
     });
   }
@@ -208,7 +205,7 @@ const handleWheel = (e) => {
   lastAnimation = currentTime;
 };
 
-window.addEventListener(`keyup`, (e) => {
+window.addEventListener("keyup", (e) => {
   const currentTime = new Date().getTime();
 
   if (currentTime - lastAnimation < idlePeriod + duration) {
@@ -216,48 +213,48 @@ window.addEventListener(`keyup`, (e) => {
     return;
   }
 
-  if (e.code === `ArrowDown`) {
+  if (e.code === "ArrowDown") {
     index++;
     handleNext(index);
   }
-  if (e.code === `ArrowUp`) {
+  if (e.code === "ArrowUp") {
     index--;
     handlePrev(index);
   }
   lastAnimation = currentTime;
   return () => {
-    window.removeEventListener(`keyup`);
+    window.removeEventListener("keyup");
   };
 });
 
-$scrollDesktopWrap.addEventListener(`wheel`, (e) => {
+$scrollDesktopWrap.addEventListener("wheel", (e) => {
   e.preventDefault();
   handleWheel(e);
   return () => {
-    $scrollDesktopWrap.removeEventListener(`wheel`);
+    $scrollDesktopWrap.removeEventListener("wheel");
   };
 });
 
 // mobile swiper
-const mobileSwiper = new Swiper(`.portfolio__contents-swiper`, {
+const mobileSwiper = new Swiper(".portfolio__contents-swiper", {
   slidesPerView: 1,
   loop: true,
   pagination: {
-    el: `.portfolio__contents-swiper-pagination`,
+    el: ".portfolio__contents-swiper-pagination",
     clickable: true,
   },
   navigation: {
-    nextEl: `.portfolio__contents-swiper-button-next`,
-    prevEl: `.portfolio__contents-swiper-button-prev`,
+    nextEl: ".portfolio__contents-swiper-button-next",
+    prevEl: ".portfolio__contents-swiper-button-prev",
   },
 });
 
 // desktop swiper
-const desktopSwiper = new Swiper(`.m-portfolio__contents-swiper`, {
+const desktopSwiper = new Swiper(".m-portfolio__contents-swiper", {
   slidesPerView: 1,
   loop: true,
   pagination: {
-    el: `.m-portfolio__swiper-pagination`,
+    el: ".m-portfolio__swiper-pagination",
     clickable: true,
   },
 });
