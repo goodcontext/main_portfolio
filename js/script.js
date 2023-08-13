@@ -235,8 +235,18 @@ $scrollDesktopWrap.addEventListener("wheel", (e) => {
   };
 });
 
-// mobile swiper
-const mobileSwiper = new Swiper(".portfolio__contents-swiper", {
+// portfolio mobile swiper
+const portfolioMobileSwiper = new Swiper(".m-portfolio__contents-swiper", {
+  slidesPerView: 1,
+  loop: true,
+  pagination: {
+    el: ".m-portfolio__swiper-pagination",
+    clickable: true,
+  },
+});
+
+// portfolio desktop swiper
+const portfolioDesktopSwiper = new Swiper(".portfolio__contents-swiper", {
   slidesPerView: 1,
   loop: true,
   pagination: {
@@ -249,12 +259,39 @@ const mobileSwiper = new Swiper(".portfolio__contents-swiper", {
   },
 });
 
-// desktop swiper
-const desktopSwiper = new Swiper(".m-portfolio__contents-swiper", {
+// toy project mobile swiper
+const toyProjectMobileSwiper = new Swiper(".m-toy-project__contents-swiper", {
   slidesPerView: 1,
   loop: true,
   pagination: {
-    el: ".m-portfolio__swiper-pagination",
+    el: ".m-toy-project__swiper-pagination",
     clickable: true,
+  },
+});
+
+// toy project desktop swiper
+const $toyProjectContentsSwiper = document.querySelector(".toy-project__contents-swiper");
+
+const toyProjectDesktopSwiper = new Swiper(".toy-project__contents-swiper", {
+  watchSlidesProgress: true,
+  centeredSlides: true,
+	slidesPerView: 3,
+  spaceBetween: 3.125 + '%',
+  loop: true,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".toy-project__contents-swiper-pagination",
+    clickable: false,
+    type: "custom",
+    renderCustom: function (toyProjectDesktopSwiper, current, total) {
+      return ((current % (total / 2)) === 0 ? 4 : (current % (total / 2))) + ' / ' + (total / 2);
+    }
+  },
+  navigation: {
+    nextEl: ".toy-project__contents-swiper-button-next",
+    prevEl: ".toy-project__contents-swiper-button-prev",
   },
 });
