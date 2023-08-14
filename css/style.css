@@ -2031,17 +2031,17 @@ header {
 }
 
 .toy-project__contents-wrap {
-  width: 1280px;
-  width: 128rem;
-  height: 600px;
-  height: 60rem;
+  width: 1920px;
+  width: 192rem;
+  height: 650px;
+  height: 65rem;
   position: relative;
-  top: calc(191.5px + 60px);
-  top: calc(19.15rem + 6rem);
+  top: calc(191.5px + 35px);
+  top: calc(19.15rem + 3.5rem);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: visible;
+  background-color: #edf3f7;
 }
 
 .toy-project__contents {
@@ -2049,7 +2049,7 @@ header {
   width: 128rem;
   height: 600px;
   height: 60rem;
-  position: relative;
+  position: relative;  
 }
 
 .toy-project__contents > li {
@@ -2060,8 +2060,14 @@ header {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
+  align-items: space-between;
+  flex-basis: fit-content;
+  border-radius: 25px;
+  border-radius: 2.5rem;
+  border: 1px solid #e0e0e0;
+  border: .1rem solid #e0e0e0;
+  overflow: hidden;
+  background-color: #fff;
 }
 
 .toy-project__contents-container {
@@ -2196,8 +2202,8 @@ header {
   border: .1rem solid #e0e0e0;
   background-color: #fff;
   border-radius: 50%;
-  margin-left: -160px;
-  margin-left: -16rem;
+  margin-left: 160px;
+  margin-left: 16rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2224,8 +2230,8 @@ header {
   border: .1rem solid #e0e0e0;
   background-color: #fff;
   border-radius: 50%;
-  margin-right: -160px;
-  margin-right: -16rem;
+  margin-right: 160px;
+  margin-right: 16rem;
   display: flex;
   justify-content: center;
   align-items: center;
