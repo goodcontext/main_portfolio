@@ -2027,6 +2027,7 @@ header {
   height: 965px;
   height: 96.5rem;
   position: relative;
+  left: 0;
   overflow: hidden;
 }
 
@@ -2058,8 +2059,8 @@ header {
 }
 
 .toy-project__contents > li {
-  width: 400px;
-  width: 40rem;
+  width: 398px;
+  width: calc(40rem - 2px);
   height: 600px;
   height: 60rem;
   position: relative;
@@ -2073,14 +2074,11 @@ header {
   border: .1rem solid #e0e0e0;
   overflow: hidden;
   background-color: #fff;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .toy-project__contents-container {
-  width: 400px;
-  width: 40rem;
+  width: 398px;
+  width: calc(40rem - 2px);
   height: 600px;
   height: 60rem;
   position: relative;
@@ -2091,8 +2089,8 @@ header {
 }
 
 .toy-project__contents-top {
-  width: 400px;
-  width: 40rem;
+  width: 398px;
+  width: calc(40rem - 2px);
   height: 200px;
   height: 20rem;
   position: relative;
@@ -2102,14 +2100,14 @@ header {
 }
 
 .toy-project__contents-top img {
-  width: 400px;
-  width: 40rem;
+  width: 398px;
+  width: calc(40rem - 2px);
   height: auto;
 }
 
 .toy-project__contents-bottom-container {
-  width: 400px;
-  width: 40rem;
+  width: 398px;
+  width: calc(40rem - 2px);
   height: 400px;
   height: 40rem;
   position: relative;
@@ -2210,6 +2208,7 @@ header {
   border: .1rem solid #e0e0e0;
   background-color: #fff;
   border-radius: 50%;
+  left: 0;
   margin-left: 160px;
   margin-left: 16rem;
   display: flex;
@@ -2238,6 +2237,7 @@ header {
   border: .1rem solid #e0e0e0;
   background-color: #fff;
   border-radius: 50%;
+  right: 0;
   margin-right: calc(160px - 14.5px);
   margin-right: calc(16rem - 1.45rem);
   display: flex;

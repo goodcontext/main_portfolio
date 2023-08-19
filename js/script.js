@@ -276,7 +276,7 @@ const toyProjectDesktopSwiper = new Swiper(".toy-project__contents-swiper", {
   watchSlidesProgress: true,
   centeredSlides: true,
 	slidesPerView: 3,
-  spaceBetween: 1.979166666666667 + '%',
+  spaceBetween: 2.083333333333333 + '%',
   loop: true,
   autoplay: {
     delay: 7000,
