@@ -173,8 +173,8 @@ header {
   #scroll-mobile-wrap {
     width: 360px;
     width: 36rem;
-    height: 4032.5px;
-    height: 403.25rem;
+    height: calc(740px + (740px + 100px) + 550px + (740px + 100px) + 740px + 522.5px);
+    height: calc(74rem + (74rem + 10rem) + 55rem + (74rem + 10rem) + 74rem + 52.25rem);
     position: relative;
     display: block;
   }
@@ -461,8 +461,8 @@ header {
 .m-about-me-section.section-mobile {
   width: 360px;
   width: 36rem;
-  height: 740px;
-  height: 74rem;
+  height: calc(740px + 100px);
+  height: calc(74rem + 10rem);
   position: relative;
   overflow: hidden;
 }
@@ -512,8 +512,8 @@ header {
 .m-about-me__contents-container {
   width: 360px;
   width: 36rem;
-  height: 638px;
-  height: 63.8rem;
+  height: 678px;
+  height: 67.8rem;
   position: relative;
   top: calc(102px - 24px);
   top: calc(10.2rem - 2.4rem);
@@ -576,7 +576,7 @@ header {
   margin-top: .6rem;
 }
 
-.m-about-me__contents-bottom__title h2 {
+.m-about-me__contents-bottom__title h4 {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-size: 1.4rem;
@@ -666,8 +666,8 @@ header {
 .m-portfolio-section.section-mobile {
   width: 360px;
   width: 36rem;
-  height: 740px;
-  height: 74rem;
+  height: calc(740px + 100px);
+  height: calc(74rem + 10rem);
   position: relative;
   overflow: hidden;
 }
@@ -675,8 +675,8 @@ header {
 .m-portfolio__contents-wrap {
   width: 360px;
   width: 36rem;
-  height: 638px;
-  height: 63.8rem;
+  height: calc(638px + 50px);
+  height: calc(63.8rem + 5rem);
   position: relative;
   top: calc(102px - 24px);
   top: calc(10.2rem - 2.4rem);
@@ -688,8 +688,8 @@ header {
 .m-portfolio__contents-container {
   width: 360px;
   width: 36rem;
-  height: 638px;
-  height: 63.8rem;
+  height: calc(638px + 50px);
+  height: calc(63.8rem + 5rem);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -725,8 +725,8 @@ header {
 .m-portfolio__contents-bottom-container {
   width: 300px;
   width: 30rem;
-  height: 421.5px;
-  height: 42.15rem;
+  height: calc(421.5px + 50px);
+  height: calc(42.15rem + 5rem);
   position: relative;
   display: flex;
   margin-top: 16.5px;
@@ -1541,8 +1541,8 @@ header {
 .about-me-section.section-desktop {
   width: 1920px;
   width: 192rem;
-  height: 965px;
-  height: 96.5rem;
+  height: 1100px;
+  height: 110rem;
   position: relative;
   overflow: hidden;
 }
@@ -1592,8 +1592,8 @@ header {
 .about-me__contents-container {
   width: 1280px;
   width: 128rem;
-  height: 600px;
-  height: 60rem;
+  height: 650px;
+  height: 65rem;
   position: relative;
   top: calc(191.5px + 60px);
   top: calc(19.15rem + 6rem);
@@ -1605,8 +1605,8 @@ header {
 .about-me__contents-left {
   width: 640px;
   width: 64rem;
-  height: 600px;
-  height: 60rem;
+  height: 650px;
+  height: 65rem;
   position: relative;
 }
 
@@ -1624,8 +1624,8 @@ header {
 .about-me__contents-right-container {
   width: 640px;
   width: 64rem;
-  height: 600px;
-  height: 60rem;
+  height: 650px;
+  height: 65rem;
   position: relative;
 }
 
@@ -1680,7 +1680,7 @@ header {
   margin-top: 1.5rem;
 }
 
-.about-me__contents-right__title h2 {
+.about-me__contents-right__title h4 {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-size: 2.4rem;
@@ -2182,7 +2182,7 @@ header {
 }
 
 @media (min-width: 768px) and (max-width: 895px) {  
-  .toy-project__contents-bottom__title h2, .toy-project__contents-bottom__contents p {
+  .toy-project__contents-bottom__title h4, .toy-project__contents-bottom__contents p {
     width: 633.3333333333333px;
     width: 63.3333333333333rem;
     transform: scale(.6);
@@ -2192,7 +2192,7 @@ header {
 }
 
 @media (min-width: 896px) and (max-width: 1023px) {
-  .toy-project__contents-bottom__title h2, .toy-project__contents-bottom__contents p {
+  .toy-project__contents-bottom__title h4, .toy-project__contents-bottom__contents p {
     width: 542.8571428571429px;
     width: 54.28571428571429rem;
     transform: scale(.7);
@@ -2202,7 +2202,7 @@ header {
 }
 
 @media (min-width: 1024px) and (max-width: 1280px) {  
-  .toy-project__contents-bottom__title h2, .toy-project__contents-bottom__contents p {
+  .toy-project__contents-bottom__title h4, .toy-project__contents-bottom__contents p {
     width: 475px;
     width: 47.5rem;
     transform: scale(.8);
