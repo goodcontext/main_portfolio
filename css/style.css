@@ -675,8 +675,8 @@ header {
 .m-portfolio__contents-wrap {
   width: 360px;
   width: 36rem;
-  height: calc(638px + 50px);
-  height: calc(63.8rem + 5rem);
+  height: 638px;
+  height: 63.8rem;
   position: relative;
   top: calc(102px - 24px);
   top: calc(10.2rem - 2.4rem);
@@ -685,11 +685,18 @@ header {
   align-items: center;
 }
 
+@media (max-width: 325px) {
+  .m-portfolio__contents-wrap {
+    height: calc(638px + 50px);
+    height: calc(63.8rem + 5rem);
+  }
+}
+
 .m-portfolio__contents-container {
   width: 360px;
   width: 36rem;
-  height: calc(638px + 50px);
-  height: calc(63.8rem + 5rem);
+  height: 638px;
+  height: 63.8rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -725,8 +732,8 @@ header {
 .m-portfolio__contents-bottom-container {
   width: 300px;
   width: 30rem;
-  height: calc(421.5px + 50px);
-  height: calc(42.15rem + 5rem);
+  height: 421.5px;
+  height: 42.15rem;
   position: relative;
   display: flex;
   margin-top: 16.5px;
