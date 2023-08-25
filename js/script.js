@@ -26,9 +26,27 @@ $scrollMobileLi.forEach((item, i) => {
     }
     mHandleClick(i);
     mLastAnimation = currentTime;
+    
     return () => {
       item.removeEventListener("click");
     };
+  });
+
+  item.addEventListener("focusin", (e) => {
+    e.currentTarget.classList.add("focused");
+    e.target.focus();
+
+    return () => {
+      item.removeEventListener("focusin");
+    }
+  });
+
+  item.addEventListener("focusout", (e) => {
+    e.currentTarget.classList.remove("focused");
+
+    return () => {
+      item.removeEventListener("focusout");
+    }
   });
 });
 
@@ -36,6 +54,7 @@ const mActiveClassControl = (i) => {
   mIndex = i;
   if (isScrollCompleted) {
     $scrollMobileLi[mPreIndex].classList.remove("active");
+    $scrollMobileLi[mPreIndex].classList.remove("focused");
     $scrollMobileLi[i].classList.add("active");
     mPreIndex = i;
   }
@@ -51,32 +70,6 @@ const mHandleClick = (i) => {
     isScrollCompleted = false;
     $scrollMobile[i].scrollIntoView({ behavior: "smooth" });
     setTimeout(function() { isScrollCompleted = true; }, M_IS_SCROLL_COMPLETED_DELAY);
-  }
-};
-
-const mHandleNext = (i) => {
-  if (i > $scrollMobile.length - 1) {
-    return (mIndex = $scrollMobile.length - 1);
-  } else {
-    $scrollMobile.forEach((item, mIndex) => {
-      if (i === mIndex) {
-        mActiveClassControl(i);
-        item.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  }
-};
-
-const mHandlePrev = (i) => {
-  if (i < 0) {
-    return (mIndex = 0);
-  } else {
-    $scrollMobile.forEach((item, mIndex) => {
-      if (i === mIndex) {
-        mActiveClassControl(i);
-        item.scrollIntoView({ behavior: "smooth" });
-      }
-    });
   }
 };
 
@@ -108,6 +101,7 @@ function mHandleScrollEvent(e) {
 
 window.addEventListener("scroll", function(e) {
   if (!mTimer) mTimer = setTimeout(mHandleScrollEvent, M_DELAY);
+
   return () => {
     window.removeEventListener("scroll");
   }
@@ -118,8 +112,8 @@ const $scrollDesktopWrap = document.querySelector("#scroll-desktop-wrap");
 const $scrollDesktop = document.querySelectorAll(".scroll-desktop");
 const $scrollDesktopLi = document.querySelectorAll(".scroll-desktop-li");
 
-const idlePeriod = 0;
-const duration = 1000;
+const IDLE_PERIOD = 0;
+const DURATION = 1000;
 
 let lastAnimation = 1000;
 let index = 0;
@@ -130,15 +124,34 @@ $scrollDesktopLi.forEach((item, i) => {
     e.preventDefault();
     const currentTime = new Date().getTime();
 
-    if (currentTime - lastAnimation < idlePeriod + duration) {
+    if (currentTime - lastAnimation < IDLE_PERIOD + DURATION) {
       e.preventDefault();
       return;
     }
     handleClick(i);
     preIndex = i;
     lastAnimation = currentTime;
+    
     return () => {
       item.removeEventListener("click");
+    };
+  });
+
+  item.addEventListener("focusin", (e) => {
+    e.currentTarget.classList.add("focused");
+    e.currentTarget.focus();
+
+    return () => {
+      item.removeEventListener("focusin");
+    };
+  });
+
+  item.addEventListener("focusout", (e) => {
+    e.currentTarget.classList.remove("focused");
+    e.currentTarget.blur();
+
+    return () => {
+      item.removeEventListener("focusout");
     };
   });
 });
@@ -146,6 +159,7 @@ $scrollDesktopLi.forEach((item, i) => {
 const activeClassControl = (index) => {
   $scrollDesktopLi[index].classList.add("active");
   $scrollDesktopLi[preIndex].classList.remove("active");
+  $scrollDesktopLi[preIndex].classList.remove("focused");
   preIndex = index;
 }
 
@@ -190,7 +204,7 @@ const handleWheel = (e) => {
   const delta = e.wheelDelta;
   const currentTime = new Date().getTime();
 
-  if (currentTime - lastAnimation < idlePeriod + duration) {
+  if (currentTime - lastAnimation < IDLE_PERIOD + DURATION) {
     e.preventDefault();
     return;
   }
@@ -208,7 +222,7 @@ const handleWheel = (e) => {
 window.addEventListener("keyup", (e) => {
   const currentTime = new Date().getTime();
 
-  if (currentTime - lastAnimation < idlePeriod + duration) {
+  if (currentTime - lastAnimation < IDLE_PERIOD + DURATION) {
     e.preventDefault();
     return;
   }
@@ -222,6 +236,7 @@ window.addEventListener("keyup", (e) => {
     handlePrev(index);
   }
   lastAnimation = currentTime;
+
   return () => {
     window.removeEventListener("keyup");
   };
@@ -230,6 +245,7 @@ window.addEventListener("keyup", (e) => {
 $scrollDesktopWrap.addEventListener("wheel", (e) => {
   e.preventDefault();
   handleWheel(e);
+
   return () => {
     $scrollDesktopWrap.removeEventListener("wheel");
   };
