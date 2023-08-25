@@ -52,12 +52,16 @@ $scrollMobileLi.forEach((item, i) => {
 const mActiveClassControl = (i) => {
   mIndex = i;
   if (isScrollCompleted) {
-    $scrollMobileLi[mPreIndex].classList.remove("active");
-    $scrollMobileLi[mPreIndex].classList.remove("focused");
-    $scrollMobileLi[mPreIndex].blur();
+    if (i !== mPreIndex) {
+      $scrollMobileLi[mPreIndex].classList.remove("active");
+      $scrollMobileLi[mPreIndex].classList.remove("focused");
+    }
+
     $scrollMobileLi[i].classList.add("active");
-    $scrollMobileLi[i].focus();
-    mPreIndex = i;
+
+    if (i !== mPreIndex) {
+      mPreIndex = i;
+    }
   }
 }
 
@@ -131,7 +135,9 @@ $scrollDesktopLi.forEach((item, i) => {
       return;
     }
     handleClick(i);
-    preIndex = i;
+    if (i !== preIndex) {
+      preIndex = i;
+    }
     lastAnimation = currentTime;
     
     return () => {
@@ -159,9 +165,13 @@ $scrollDesktopLi.forEach((item, i) => {
 const activeClassControl = (index) => {
   $scrollDesktopLi[index].classList.add("active");
   $scrollDesktopLi[index].classList.add("focused");
-  $scrollDesktopLi[preIndex].classList.remove("active");
-  $scrollDesktopLi[preIndex].classList.remove("focused");
-  preIndex = index;
+  
+  if (index !== preIndex) {
+    $scrollDesktopLi[preIndex].classList.remove("active");
+    $scrollDesktopLi[preIndex].classList.remove("focused");
+    
+    preIndex = index;
+  }
 }
 
 const handleClick = (i) => {
@@ -311,4 +321,23 @@ const toyProjectDesktopSwiper = new Swiper(".toy-project__contents-swiper", {
     nextEl: ".toy-project__contents-swiper-button-next",
     prevEl: ".toy-project__contents-swiper-button-prev",
   },
+});
+
+// div [role="button"] global keydown event handling.
+const $divRoleButton = document.querySelectorAll('div[role="button"]');
+
+$divRoleButton.forEach( element => {
+  element.addEventListener('keydown', function(e) {
+    const keyD = e.key !== undefined ? e.key : e.keyCode;
+    // e.key && e.keycode have mixed support - keycode is deprecated but support is greater than e.key
+    // I tested within IE11, Firefox, Chrome, Edge (latest) & all had good support for e.key
+  
+      if ( (keyD === 'Enter' || keyD === 13) || (['Spacebar', ' '].indexOf(keyD) >= 0 || keyD === 32)) {
+      // In IE11 and lower, e.key will equal "Spacebar" instead of ' '
+  
+      // Default behavior is prevented to prevent the page to scroll when "space" is pressed
+      e.preventDefault();
+      this.click();
+    }
+  });
 });
