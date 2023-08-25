@@ -34,7 +34,6 @@ $scrollMobileLi.forEach((item, i) => {
 
   item.addEventListener("focusin", (e) => {
     e.currentTarget.classList.add("focused");
-    e.target.focus();
 
     return () => {
       item.removeEventListener("focusin");
@@ -120,13 +119,14 @@ const DURATION = 1000;
 let lastAnimation = 1000;
 let index = 0;
 let preIndex = 0;
+let isKeyDown = false;
 
 $scrollDesktopLi.forEach((item, i) => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
     const currentTime = new Date().getTime();
 
-    if (currentTime - lastAnimation < IDLE_PERIOD + DURATION) {
+    if (currentTime - lastAnimation < IDLE_PERIOD) {
       e.preventDefault();
       return;
     }
@@ -141,7 +141,6 @@ $scrollDesktopLi.forEach((item, i) => {
 
   item.addEventListener("focusin", (e) => {
     e.currentTarget.classList.add("focused");
-    e.currentTarget.focus();
 
     return () => {
       item.removeEventListener("focusin");
@@ -150,7 +149,6 @@ $scrollDesktopLi.forEach((item, i) => {
 
   item.addEventListener("focusout", (e) => {
     e.currentTarget.classList.remove("focused");
-    e.currentTarget.blur();
 
     return () => {
       item.removeEventListener("focusout");
@@ -160,6 +158,7 @@ $scrollDesktopLi.forEach((item, i) => {
 
 const activeClassControl = (index) => {
   $scrollDesktopLi[index].classList.add("active");
+  $scrollDesktopLi[index].classList.add("focused");
   $scrollDesktopLi[preIndex].classList.remove("active");
   $scrollDesktopLi[preIndex].classList.remove("focused");
   preIndex = index;
@@ -223,7 +222,7 @@ const handleWheel = (e) => {
 
 window.addEventListener("keyup", (e) => {
   const currentTime = new Date().getTime();
-
+  
   if (currentTime - lastAnimation < IDLE_PERIOD + DURATION) {
     e.preventDefault();
     return;

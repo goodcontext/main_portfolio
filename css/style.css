@@ -263,10 +263,6 @@ header {
   font-weight: bold;
 }
 
-.m-right-menu-container > ul li.focused span {
-  font-weight: bold;
-}
-
 .m-right-menu-container > ul li.active span {
   font-weight: bold;
 }
@@ -288,10 +284,6 @@ header {
 }
 
 .m-right-menu-container > ul li:hover::before {
-  opacity: 1;
-}
-
-.m-right-menu-container > ul li.focused::before {
   opacity: 1;
 }
 
@@ -1216,10 +1208,6 @@ header {
   font-weight: bold;
 }
 
-.right-menu-container > ul li.focused span {
-  font-weight: bold;
-}
-
 .right-menu-container > ul li.active span {
   font-weight: bold;
 }
@@ -1241,10 +1229,6 @@ header {
 }
 
 .right-menu-container > ul li:hover::before {
-  opacity: 1;
-}
-
-.right-menu-container > ul li.focused::before {
   opacity: 1;
 }
 
@@ -2049,7 +2033,7 @@ header {
   height: 2.5px;
   height: .25rem;
   background-color: #a0a0a0;
-  border-radius: 0; 
+  border-radius: 0;
 }
 
 .portfolio__contents-swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
