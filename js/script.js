@@ -55,7 +55,9 @@ const mActiveClassControl = (i) => {
   if (isScrollCompleted) {
     $scrollMobileLi[mPreIndex].classList.remove("active");
     $scrollMobileLi[mPreIndex].classList.remove("focused");
+    $scrollMobileLi[mPreIndex].blur();
     $scrollMobileLi[i].classList.add("active");
+    $scrollMobileLi[i].focus();
     mPreIndex = i;
   }
 }
