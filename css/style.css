@@ -257,6 +257,7 @@ header {
   white-space: nowrap;
   position: relative;
   transition: font-weight .25s ease;
+  cursor: pointer;
 }
 
 .m-right-menu-container > ul li:hover span {
