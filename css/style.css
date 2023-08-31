@@ -2186,7 +2186,7 @@ header {
   font-size: 1.5rem;
   color: #171717;
   line-height: 1.45;
-  white-space: wrap;
+  white-space: normal;
 }
 
 @media (min-width: 768px) and (max-width: 895px) {  
@@ -2398,7 +2398,7 @@ header {
   transition: background-color .5s ease;
 }
 
-.contact__contents > li > a:has(.contact__contents-email-send):focus-within {
+.contact__contents > li > a:focus-within > .contact__contents-email-send {
   background-color: #84d94c;
 }
 
