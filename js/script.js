@@ -26,7 +26,7 @@ $scrollMobileLi.forEach((item, i) => {
     }
     mHandleClick(i);
     mLastAnimation = currentTime;
-    
+
     return () => {
       item.removeEventListener("click");
     };
@@ -74,7 +74,7 @@ const mHandleClick = (i) => {
     mActiveClassControl(i);
     isScrollCompleted = false;
     $scrollMobile[i].scrollIntoView({ behavior: "smooth" });
-    setTimeout(function() { isScrollCompleted = true; }, M_IS_SCROLL_COMPLETED_DELAY);
+    setTimeout(function () { isScrollCompleted = true; }, M_IS_SCROLL_COMPLETED_DELAY);
   }
 };
 
@@ -90,7 +90,7 @@ function mHandleScrollEvent(e) {
   $scrollMobile.forEach((element, index) => {
     if (isScrolledIntoView(element)) {
       const st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-      
+
       if (st > mLastScrollTop) {
         mActiveClassControl(index);
       } else if (st < mLastScrollTop) {
@@ -98,13 +98,13 @@ function mHandleScrollEvent(e) {
       } else {
         // else was horizontal scroll
       }
-      
+
       mLastScrollTop = st <= 0 ? 0 : st;
     }
   })
 }
 
-window.addEventListener("scroll", function(e) {
+window.addEventListener("scroll", function (e) {
   if (!mTimer) mTimer = setTimeout(mHandleScrollEvent, M_DELAY);
 
   return () => {
@@ -139,7 +139,7 @@ $scrollDesktopLi.forEach((item, i) => {
       preIndex = i;
     }
     lastAnimation = currentTime;
-    
+
     return () => {
       item.removeEventListener("click");
     };
@@ -165,11 +165,11 @@ $scrollDesktopLi.forEach((item, i) => {
 const activeClassControl = (index) => {
   $scrollDesktopLi[index].classList.add("active");
   $scrollDesktopLi[index].classList.add("focused");
-  
+
   if (index !== preIndex) {
     $scrollDesktopLi[preIndex].classList.remove("active");
     $scrollDesktopLi[preIndex].classList.remove("focused");
-    
+
     preIndex = index;
   }
 }
@@ -181,7 +181,7 @@ const handleClick = (i) => {
     return;
   } else {
     activeClassControl(i);
-    $scrollDesktop[i].scrollIntoView({ behavior: "smooth" });    
+    $scrollDesktop[i].scrollIntoView({ behavior: "smooth" });
   }
 };
 
@@ -192,7 +192,7 @@ const handleNext = (i) => {
     $scrollDesktop.forEach((item, index) => {
       if (i === index) {
         activeClassControl(i);
-        item.scrollIntoView({ behavior: "smooth" });        
+        item.scrollIntoView({ behavior: "smooth" });
       }
     });
   }
@@ -205,7 +205,7 @@ const handlePrev = (i) => {
     $scrollDesktop.forEach((item, index) => {
       if (i === index) {
         activeClassControl(i);
-        item.scrollIntoView({ behavior: "smooth" });        
+        item.scrollIntoView({ behavior: "smooth" });
       }
     });
   }
@@ -232,7 +232,7 @@ const handleWheel = (e) => {
 
 window.addEventListener("keyup", (e) => {
   const currentTime = new Date().getTime();
-  
+
   if (currentTime - lastAnimation < IDLE_PERIOD + DURATION) {
     e.preventDefault();
     return;
@@ -302,7 +302,7 @@ const $toyProjectContentsSwiper = document.querySelector(".toy-project__contents
 const toyProjectDesktopSwiper = new Swiper(".toy-project__contents-swiper", {
   watchSlidesProgress: true,
   centeredSlides: true,
-	slidesPerView: 3,
+  slidesPerView: 3,
   spaceBetween: 2.083333333333333 + '%',
   loop: true,
   autoplay: {
@@ -326,18 +326,36 @@ const toyProjectDesktopSwiper = new Swiper(".toy-project__contents-swiper", {
 // div [role="button"] global keydown event handling.
 const $divRoleButton = document.querySelectorAll('div[role="button"]');
 
-$divRoleButton.forEach( element => {
-  element.addEventListener('keydown', function(e) {
+$divRoleButton.forEach(element => {
+  element.addEventListener('keydown', function (e) {
     const keyD = e.key !== undefined ? e.key : e.keyCode;
     // e.key && e.keycode have mixed support - keycode is deprecated but support is greater than e.key
     // I tested within IE11, Firefox, Chrome, Edge (latest) & all had good support for e.key
-  
-      if ( (keyD === 'Enter' || keyD === 13) || (['Spacebar', ' '].indexOf(keyD) >= 0 || keyD === 32)) {
+
+    if ((keyD === 'Enter' || keyD === 13) || (['Spacebar', ' '].indexOf(keyD) >= 0 || keyD === 32)) {
       // In IE11 and lower, e.key will equal "Spacebar" instead of ' '
-  
+
       // Default behavior is prevented to prevent the page to scroll when "space" is pressed
       e.preventDefault();
       this.click();
     }
+  });
+});
+
+// mobile Send click event when a tag is focused
+const $sectionMobileTitle = document.querySelectorAll(".section-mobile-title");
+
+$sectionMobileTitle.forEach((element, index) => {
+  element.querySelector("a").addEventListener("focus", (e) => {
+    mHandleClick(index + 1);
+  });
+});
+
+// Send click event when a tag is focused
+const $sectionDesktopTitle = document.querySelectorAll(".section-desktop-title");
+
+$sectionDesktopTitle.forEach((element, index) => {
+  element.querySelector("a").addEventListener("focus", (e) => {
+    handleClick(index + 1);
   });
 });
