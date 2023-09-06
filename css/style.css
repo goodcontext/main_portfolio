@@ -179,8 +179,8 @@ header {
   #scroll-mobile-wrap {
     width: 360px;
     width: 36rem;
-    height: calc(740px + (740px + 100px) + 550px + (740px + 100px) + 740px + 522.5px);
-    height: calc(74rem + (74rem + 10rem) + 55rem + (74rem + 10rem) + 74rem + 52.25rem);
+    height: calc(740px + (740px + 120px) + 550px + (740px + 100px) + 740px + 522.5px);
+    height: calc(74rem + (74rem + 12rem) + 55rem + (74rem + 10rem) + 74rem + 52.25rem);
     position: relative;
     display: block;
   }
@@ -476,8 +476,8 @@ header {
 .m-about-me-section.section-mobile {
   width: 360px;
   width: 36rem;
-  height: calc(740px + 100px);
-  height: calc(74rem + 10rem);
+  height: calc(740px + 120px);
+  height: calc(74rem + 12rem);
   position: relative;
   overflow: hidden;
 }
@@ -512,7 +512,7 @@ header {
   align-items: center;
 }
 
-.section-mobile-title p::before {
+.section-mobile-title h2::before {
   content: "";
   width: 100%;
   height: 12.5px;
@@ -527,8 +527,8 @@ header {
 .m-about-me__contents-container {
   width: 360px;
   width: 36rem;
-  height: calc(678px + 15px);
-  height: calc(67.8rem + 1.5rem);
+  height: 700px;
+  height: 70rem;
   position: relative;
   top: calc(102px - 24px);
   top: calc(10.2rem - 2.4rem);
@@ -540,18 +540,22 @@ header {
 .m-about-me__contents-top {
   width: 300px;
   width: 30rem;
-  height: 265px;
-  height: 26.5rem;
+  height: 270px;
+  height: 27rem;
   position: relative;
   display: flex;
   justify-content: center;
+  will-change: transform;
 }
 
 .m-about-me__contents-top img {
-  width: 200px;
-  width: 20rem;
-  height: 265px;
-  height: 26.5rem;
+  width: 800px;
+  width: 80rem;
+  height: 1080px;
+  height: 108rem;
+  image-rendering: auto;
+  transform: scale(.25);
+  transform-origin: top center;
 }
 
 .m-about-me__contents-bottom-container {
@@ -1651,17 +1655,21 @@ header {
   height: 650px;
   height: 65rem;
   position: relative;
+  will-change: transform;
 }
 
 .about-me__contents-left img {
-  width: 400px;
-  width: 40rem;
-  height: 530px;
-  height: 53rem;
+  width: 800px;
+  width: 80rem;
+  height: 1080px;
+  height: 108rem;
   position: absolute;
   top: 35px;
   top: 3.5rem;
   left: 0;
+  image-rendering: auto;
+  transform: scale(.5);
+  transform-origin: top left;
 }
 
 .about-me__contents-right-container {
