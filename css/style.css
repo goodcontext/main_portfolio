@@ -545,6 +545,7 @@ header {
   position: relative;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   will-change: transform;
 }
 
@@ -1655,6 +1656,7 @@ header {
   height: 650px;
   height: 65rem;
   position: relative;
+  overflow: hidden;
   will-change: transform;
 }
 
