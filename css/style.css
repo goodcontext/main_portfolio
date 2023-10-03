@@ -179,8 +179,8 @@ header {
   #scroll-mobile-wrap {
     width: 360px;
     width: 36rem;
-    height: calc(740px + (740px + 180px) + 550px + (740px + 100px) + 740px + 522.5px);
-    height: calc(74rem + (74rem + 18rem) + 55rem + (74rem + 10rem) + 74rem + 52.25rem);
+    height: calc(740px + (740px + 195px) + 550px + (740px + 100px) + 740px + 522.5px);
+    height: calc(74rem + (74rem + 19.5rem) + 55rem + (74rem + 10rem) + 74rem + 52.25rem);
     position: relative;
     display: block;
   }
@@ -476,8 +476,8 @@ header {
 .m-about-me-section.section-mobile {
   width: 360px;
   width: 36rem;
-  height: calc(740px + 180px);
-  height: calc(74rem + 18rem);
+  height: calc(740px + 195px);
+  height: calc(74rem + 19.5rem);
   position: relative;
   overflow: hidden;
 }
