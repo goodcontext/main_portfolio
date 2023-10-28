@@ -747,7 +747,17 @@ header {
   background-color: #eef4f8;
 }
 
+.m-portfolio__contents-top.resort-portfolio {
+  background-color: #edf6f7;
+}
+
 .m-portfolio__contents-top img {
+  width: 300px;
+  width: 30rem;
+  height: auto;
+}
+
+.m-portfolio__contents-top video {
   width: 300px;
   width: 30rem;
   height: auto;
@@ -819,6 +829,10 @@ header {
 
 .m-portfolio__contents-site-link.main-portfolio {
   background-color: #43a3f1;
+}
+
+.m-portfolio__contents-site-link.resort-portfolio {
+  background-color : #43e3f1;
 }
 
 .m-portfolio__contents-site-link span {
@@ -1891,6 +1905,10 @@ header {
   background-color: #edf3f7;
 }
 
+.portfolio__contents>li.resort-portfolio {
+  background-color: #edf6f7;
+}
+
 .portfolio__contents-container {
   width: 1280px;
   width: 128rem;
@@ -1913,6 +1931,11 @@ header {
 .portfolio__contents-left img {
   width: 720px;
   width: 72rem;
+  height: auto;
+}
+
+.portfolio__contents-left video {
+  width: 720px;
   height: auto;
 }
 
@@ -2016,6 +2039,23 @@ header {
 
 .portfolio__contents-site-link.main-portfolio:hover span {
   color: #cbe3f7;
+}
+
+.portfolio__contents-site-link.resort-portfolio {
+  background-color: #cbf3f7;
+}
+
+.portfolio__contents-site-link.resort-portfolio span {
+  color: #43e3f1;
+}
+
+.portfolio__contents-site-link.resort-portfolio:hover {
+  background-color: #43e3f1;
+  cursor: pointer;
+}
+
+.portfolio__contents-site-link.resort-portfolio:hover span {
+  color: #cbf3f7;
 }
 
 @media (min-width: 768px) and (max-width: 1280px) {
