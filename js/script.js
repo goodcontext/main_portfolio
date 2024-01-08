@@ -286,20 +286,20 @@ const portfolioDesktopSwiper = new Swiper(".portfolio__contents-swiper", {
   },
 });
 
-// toy project mobile swiper
-const toyProjectMobileSwiper = new Swiper(".m-toy-project__contents-swiper", {
+// micro interactions mobile swiper
+const microInteractionsMobileSwiper = new Swiper(".m-micro-interactions__contents-swiper", {
   slidesPerView: 1,
   loop: true,
   pagination: {
-    el: ".m-toy-project__swiper-pagination",
+    el: ".m-micro-interactions__swiper-pagination",
     clickable: true,
   },
 });
 
-// toy project desktop swiper
-const $toyProjectContentsSwiper = document.querySelector(".toy-project__contents-swiper");
+// micro interactions desktop swiper
+const $microInteractionsContentsSwiper = document.querySelector(".micro-interactions__contents-swiper");
 
-const toyProjectDesktopSwiper = new Swiper(".toy-project__contents-swiper", {
+const microInteractionsDesktopSwiper = new Swiper(".micro-interactions__contents-swiper", {
   watchSlidesProgress: true,
   centeredSlides: true,
   slidesPerView: 3,
@@ -310,16 +310,16 @@ const toyProjectDesktopSwiper = new Swiper(".toy-project__contents-swiper", {
     disableOnInteraction: false,
   },
   pagination: {
-    el: ".toy-project__contents-swiper-pagination",
+    el: ".micro-interactions__contents-swiper-pagination",
     clickable: false,
     type: "custom",
-    renderCustom: function (toyProjectDesktopSwiper, current, total) {
+    renderCustom: function (microInteractionsDesktopSwiper, current, total) {
       return ((current % (total / 2)) === 0 ? 4 : (current % (total / 2))) + ' / ' + (total / 2);
     }
   },
   navigation: {
-    nextEl: ".toy-project__contents-swiper-button-next",
-    prevEl: ".toy-project__contents-swiper-button-prev",
+    nextEl: ".micro-interactions__contents-swiper-button-next",
+    prevEl: ".micro-interactions__contents-swiper-button-prev",
   },
 });
 
